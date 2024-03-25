@@ -3,19 +3,19 @@ import { BoxImg, BoxOverlay, Img } from './Modal.styles';
 
 const Modal = ({ onClose, url, alt }) => {
   useEffect(() => {
+    const handlPress = ({ code }) => {
+      console.log('code: ', code);
+      if (code === 'Escape') {
+        onClose();
+      }
+    };
+
     window.addEventListener('keydown', handlPress);
 
     return () => {
       window.removeEventListener('keydown', handlPress);
     };
-  }, []);
-
-  function handlPress({ code }) {
-    console.log('code: ', code);
-    if (code === 'Escape') {
-      onClose();
-    }
-  }
+  }, [onClose]);
 
   const clickMouse = ({ target, currentTarget }) => {
     if (target === currentTarget) {
