@@ -35,15 +35,15 @@ export const App = () => {
           );
         } else throw new Error(data.message);
         setCards(prevState => [...prevState, ...arrImg]);
-        setLoading(false);
+        // setLoading(false);
       })
       .catch(error => {
         alert(
           'Sorry, there are no images matching your search query. Please try again.'
         );
-        setLoading(false);
-      });
-    // .finally(this.setState({ loading: false }));
+        // setLoading(false);
+      })
+      .finally(setLoading(false));
   }
 
   const changeFindImg = findImgNew => {
