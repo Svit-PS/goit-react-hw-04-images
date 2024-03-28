@@ -43,7 +43,7 @@ export const App = () => {
         );
         // setLoading(false);
       })
-      .finally(setLoading(false));
+      .finally(() => setLoading(false));
   }
 
   const changeFindImg = findImgNew => {
